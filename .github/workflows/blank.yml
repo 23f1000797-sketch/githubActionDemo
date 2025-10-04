@@ -19,7 +19,7 @@ jobs:
           path: ~/.cache/my-dependencies
           key: cache-d79614a
 
-      - name: prime-cache-d79614a
+      - name: "prime-cache-d79614a"
         run: |
           if [ "${{ steps.cache-step.outputs.cache-hit }}" == 'true' ]; then
             echo "Cache hit for key cache-d79614a"
