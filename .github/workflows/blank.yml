@@ -1,0 +1,28 @@
+name: Cache Demo Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  cache-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Cache dependencies
+        id: cache-step
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/my-dependencies
+          key: cache-d79614a
+
+      - name: prime-cache-d79614a
+        run: |
+          if [ "${{ steps.cache-step.outputs.cache-hit }}" == 'true' ]; then
+            echo "Cache hit for key cache-d79614a"
+          else
+            echo "Cache miss for key cache-d79614a"
+          fi
