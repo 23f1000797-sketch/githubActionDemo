@@ -1,10 +1,15 @@
+name: Email Step Workflow
 
-
+on:
+  push:
+    branches:
+      - main  # or your default branch
 
 jobs:
   test:
+    runs-on: ubuntu-latest
+
     steps:
       - name: 23f1000797@ds.study.iitm.ac.in
         run: echo "Hello, world!"
-      
-Trigger the action and make sure it is the most recent action.
+
